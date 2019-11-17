@@ -1,15 +1,13 @@
 <h1>Buscador <small>Marvel y DC Buscando a {{termino}}</small></h1>
-
-<div class="card-columns mb-5 ">
-    <div *ngFor="let heroe of heroes, let i = index" class="card animated fadeIn fast shadow-sm">
-        <img src="{{heroe.img}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{heroe.nombre}}</h5>
-          <p class="card-text">{{heroe.casa}}</p>
-          <p class="card-text">{{heroe.bio}}</p>
-          <p><small class="text-muted">{{heroe.aparicion}}</small></p>
-          <button type="button" (click)="verMas(i)" class="btn btn-outline-primary btn-block">Ver más</button>
-         <!--<a [routerLink]="['/heroe',i]" routerLinkActive=""  class="btn btn-outline-primary btn-block"> Ver más </a>-->
+<div class="row" *ngIf="heroes.length==0">
+    <div class="col">
+        <div class="alert alert-info" role="alert">
+            <strong>No hay resultados con el termino {{termino}}</strong>
         </div>
     </div>
+</div> 
+<div class="card-columns mb-5 ">
+    <!--let heroe of heroes, let i = index-->
+    <app-heroes-targetas [heroe]="heroe" [index]="heroe.id" *ngFor="let heroe of heroes, let i = index" ></app-heroes-targetas>
+
 </div>

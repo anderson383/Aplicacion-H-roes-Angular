@@ -9,7 +9,7 @@ import { HeroesService } from 'src/app/Servicios/heroes.service';
 })
 export class HeroeComponent{
 
-    heroe:any[] = [];
+    heroe:any = {};
   constructor(private activaRoute:ActivatedRoute,
     private _heroeService:HeroesService) { 
     this.activaRoute.params.subscribe( params => {
